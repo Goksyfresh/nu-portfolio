@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
@@ -15,7 +16,7 @@ const Footer = () => {
     <ul className='flex flex-col gap-[10px] font-medium text-p20'>
         <p className='font-regular text-p16'>pages</p>
         <li>home</li>
-        <li>about</li>
+        <Link href='/work'>about</Link>
         <li>work</li>
     </ul>
     <ul className='flex flex-col gap-[10px] font-medium text-p20'>
@@ -33,7 +34,7 @@ const Footer = () => {
       <div className='flex w-full flex-col items-start gap-[24px]'>
  
       <div className='w-full h-[1px] bg-light-20'/>
-      <div className='flex w-full items-center justify-between'>
+      <div className='flex lg:flex-row flex-col w-full items-start gap-[4px] lg:items-center justify-between'>
         <p>© 2026 opajobi oyegoke. all rights reserved</p>
         <p>framer template created by lazar fillipovic</p>
       </div>

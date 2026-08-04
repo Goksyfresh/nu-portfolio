@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import React, { useState } from 'react'
 
 const Header = () => {
@@ -36,10 +37,10 @@ const Header = () => {
         </div> :
             <ul className='nav-list flex w-full items-center justify-between text-p20 font-medium text-light'>
         <li>
-            <a href="#">oyegoke dev</a>
+            <Link href="/">oyegoke dev</Link>
         </li>
           <li className='hidden lg:block'>
-            <a href="#">work</a>
+            <Link href="/work">work</Link>
         </li>
           <li className='hidden lg:block'>
             <a href="#">about me</a>
