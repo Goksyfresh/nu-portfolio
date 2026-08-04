@@ -26,27 +26,41 @@ const Hero = () => {
     gsap.set(split.words, {
       opacity: 0.4,
     });
-    const trigger = ScrollTrigger.create({
-      trigger: aboutContainerRef.current,
-      start: "top 20%",
-      end: "bottom 80%",
-      scrub: 0.5,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const activeIndex = progress * split.words.length;
+    const mm = gsap.matchMedia();
+     mm.add(
+    {
+      isMobile: "(max-width: 1023px)",
+      isDesktop: "(min-width: 1024px)",
+    },
+    (context) => {
+      const { isMobile } = context.conditions as { isMobile: boolean };
 
-        split.words.forEach((word, i) => {
-          gsap.to(word, {
-            opacity: i < activeIndex ? 1 : 0.4,
+      const trigger = ScrollTrigger.create({
+        trigger: aboutContainerRef.current,
+        start: isMobile ? "top 75%" : "top 60%",
+        end: isMobile ? "bottom 85%" : "bottom 75%",
+        scrub: 0.5,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const activeIndex = progress * split.words.length;
+
+          split.words.forEach((word, i) => {
+            gsap.to(word, {
+              opacity: i < activeIndex ? 1 : 0.4,
+            });
           });
-        });
-
-      },
-    });
+        },
+      });
     return () => {
     trigger.kill();
+    };
+  }
+);
+return () => {
+    mm.revert();
     split.revert();
   };
+
   }, []);
 
   const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
