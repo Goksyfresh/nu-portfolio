@@ -13,7 +13,7 @@ const Header = () => {
          <div className='fixed inset-0 w-full bg-background flex flex-col gap-[10px] py-3 px-[16px] z-10'>
             <div className='flex flex-col items-start gap-[32px]'>
                 <div className='flex items-center justify-between w-full'>
-                    <p className='text-p20 font-medium text-light'>oyegoke dev</p>
+                    <Link href="/" className='text-p20 font-medium text-light'>oyegoke dev</Link>
                     <div onClick={handleModalButton} className='relative top-0 right-0 w-[32px] h-[32px]'>
                         <div className='absolute top-1/2 left-0 bg-light w-[32px] h-[3px] rotate-45' />
                          <div className='absolute top-1/2 left-0 bg-light w-[32px] h-[3px] -rotate-45' />
@@ -21,13 +21,13 @@ const Header = () => {
                 </div>
                 <ul className='flex flex-col gap-[10px] font-medium text-p32' style={{letterSpacing:"-0.02em", lineHeight:"1.2em"}}>
  <li>
-            <a href="#">work</a>
+            <Link href="/work">work</Link>
         </li>
           <li>
-            <a href="#">about me</a>
+            <Link href="/about">about me</Link>
         </li>
           <li>
-            <a href="#">start a project</a>
+            <Link href="/contact">start a project</Link>
         </li>
                 </ul>
                  <button className="py-[12px] px-[24px] flex items-center justify-center gap-[10px] rounded-[4px] bg-light text-p16 font-medium text-dark-90">
