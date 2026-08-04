@@ -66,7 +66,7 @@ const Hero = () => {
   };
   return (
     <div className="w-full flex flex-col items-center gap-[96px] lg:px-[28px] px-[16px] pb-[48px] lg:pb-[80px]">
-      <div className=" w-full flex flex-col items-center gap-[80px]">
+      <div className=" w-full flex flex-col items-center gap-[48px] lg:gap-[80px]">
         <div className="flex flex-col items-start lg:items-end gap-[18px] lg:gap-[32px] pt-[96px] lg:pt-[64px]">
           <h1
             className="hidden lg:block font-bold text-heading"
@@ -133,7 +133,7 @@ const Hero = () => {
       </div>
       <div
         ref={aboutContainerRef}
-        className="flex flex-col items-center justify-center gap-[56px] lg:gap-[72px] lg:py-[80px] py-[48px] px-[16px] lg:px-[28px]"
+        className="flex flex-col w-full items-start lg:items-center lg:justify-center gap-[56px] lg:gap-[72px] lg:py-[80px] lg:px-[28px]"
       >
         <p
           ref={heroAboutRef}
@@ -144,9 +144,9 @@ const Hero = () => {
           work with small business owners and startup founders who want a brand
           identity that positions them as the premium choice in their market.
         </p>
-        <div className="lg:grid w-full flex flex-col grid-cols-3 h-[384px] gap-[32px] lg:gap-x-[40px] lg:gap-y-[24px]">
+        <div className="lg:grid w-full flex flex-col grid-cols-3 lg:h-[384px] gap-[32px] lg:gap-x-[40px] lg:gap-y-[24px]">
           <Image
-            className="h-full rounded-[6px] col-span-1 object-cover"
+            className="h-full rounded-[8px] lg:rounded-[6px] col-span-1 object-cover"
             src={OyeImage}
             alt=""
           />
@@ -170,7 +170,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="lg:py-[280px] lg:px-[28px] py-[48px] px-[16px] flex lg:flex-row flex-col items-start lg:items-center justify-center w-full gap-[32px] lg:gap-[72px]">
+      <div className="lg:py-[280px] lg:px-[28px] flex lg:flex-row flex-col items-start lg:items-center justify-center w-full gap-[32px] lg:gap-[72px]">
 <p className="font-bold text-[36px] lg:text-heading4 lowercase lg:capitalize" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>Get in</p>
 <Image src={OyeImage} alt="" className="lg:w-[302px] w-full h-[240px] object-cover"/>
 <p className="font-bold hidden lg:block text-heading4" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>touch</p>

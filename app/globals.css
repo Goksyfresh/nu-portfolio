@@ -70,5 +70,14 @@ body {
 .nav-list li:hover{
 opacity: 1;
 }
+.project-img-wrapper {
+  height: var(--card-height);
+}
+
+@media (max-width: 640px) {
+  .project-img-wrapper {
+    height: 320px !important;
+  }
+}
 
 

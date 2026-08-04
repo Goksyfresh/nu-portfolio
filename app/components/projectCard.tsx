@@ -13,29 +13,25 @@ const ProjectCard = ({
   imageHeight: number
   description: string
 }) => {
-       const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
-    gsap.to(e.currentTarget, {
-      scale: 1.1,
-      duration: 1,
-      ease: "power2.out",
-    });
+  const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
+    gsap.to(e.currentTarget, { scale: 1.1, duration: 1, ease: "power2.out" });
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLImageElement>) => {
-    gsap.to(e.currentTarget, {
-      scale: 1,
-      duration: 1,
-      ease: "power2.out",
-    });
+    gsap.to(e.currentTarget, { scale: 1, duration: 1, ease: "power2.out" });
   };
+
   return (
     <div className='flex flex-col gap-[12px] items-start w-full'>
-      <div className='overflow-hidden relative w-full' style={{ height: `${imageHeight}px` }}>
+      <div
+        className='project-img-wrapper overflow-hidden relative w-full'
+        style={{ ['--card-height' as string]: `${imageHeight}px` }}
+      >
         <Image
           src={image}
           alt=''
           onMouseLeave={handleMouseLeave}
-                onMouseOver={handleMouseOver}
+          onMouseOver={handleMouseOver}
           fill
           className='project-img rounded-[8px] object-cover'
         />
