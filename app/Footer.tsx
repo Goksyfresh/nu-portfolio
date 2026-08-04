@@ -27,7 +27,7 @@ const Footer = () => {
 </div>
       </div>
        <h1 className='font-semibold hidden lg:block text-heading' style={{letterSpacing:'-0.06em', lineHeight:'0.9em'}}>opajobi oyegoke</h1>
-              <h1 className='font-semibold text-[70px] lg:hidden' style={{letterSpacing:'-0.06em', lineHeight:'0.9em'}}>opajobi 'goke</h1>
+              <h1 className='font-semibold text-[68px] lg:hidden' style={{letterSpacing:'-0.06em', lineHeight:'0.9em'}}>opajobi 'goke</h1>
             </div>
 
       <div className='flex w-full flex-col items-start gap-[24px]'>
