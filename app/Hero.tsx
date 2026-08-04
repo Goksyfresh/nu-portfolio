@@ -202,7 +202,7 @@ return () => {
         </div>
       </div>
       <div className="lg:py-[280px] lg:px-[28px] flex lg:flex-row flex-col items-start lg:items-center justify-center w-full gap-[32px] lg:gap-[72px]">
-<p className="font-bold text-[36px] lg:text-heading4 lowercase lg:capitalize" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>Get in</p>
+<p className="font-bold text-[48px] lg:text-heading4 lowercase lg:capitalize" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>Get in</p>
 <Image src={currentImage} alt="" className="lg:w-[302px] rounded-[8px] w-full h-[230px] object-cover"/>
 <p className="font-bold hidden lg:block text-heading4" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>touch</p>
       </div>
