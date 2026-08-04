@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #141414;
+  --dark-20:#1F1F1F33;
+  --secondary-dark:#1F1F1F;
+  --light:#ECE8DF;
+  --light-60:#ECE8DF99;
+  --light-20:#ECE8DF33;
+  --white:#FFFFFF;
+  --dark-90:#1F1F1FE6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: funnelBold;
+  src: url("../public/fonts/FunnelSans-Bold.ttf");
+}
+@font-face {
+  font-family: funnelMedium;
+  src: url("../public/fonts/FunnelSans-Medium.ttf");
+}
+@font-face {
+  font-family: funnelRegular;
+  src: url("../public/fonts/FunnelSans-Regular.ttf");
+}
+@font-face {
+  font-family: funnelSemiBold;
+  src: url("../public/fonts/FunnelSans-SemiBold.ttf");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme inline{
+  --text-heading2: 120px;
+  --text-heading: 225px;
+    --text-heading3: 72px;
+    --text-heading4:168px;
+  --text-p44: 44px;
+  --text-p32: 32px;
+  --text-p28: 28px;
+  --text-p24: 24px;
+  --text-p20: 20px;
+  --text-p16: 16px;
+  --text-p14: 14px;
+ --color-background: var(--background);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-dark-90: var(--dark-90);
+  --color-dark-20: var(--dark-20);
+
+  --color-light: var(--light);
+  --color-light-60: var(--light-60);
+  --color-light-20: var(--light-20);
+
+  --color-white: var(--white);
+   --font-bold: funnelBold, sans-serif;
+  --font-semibold: funnelSemiBold, sans-serif;
+  --font-medium: funnelMedium, sans-serif;
+  --font-regular: funnelRegular, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+ background: var(--color-background);
+  color: var(--color-light);
+  font-family: var(--font-regular);
 }
+.nav-list li {
+  transition: opacity 0.2s ease;
+}
+.nav-list:hover li{
+  opacity: 0.64;
+}
+.nav-list li:hover{
+opacity: 1;
+}
+
+

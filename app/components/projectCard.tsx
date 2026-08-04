@@ -1,0 +1,51 @@
+import gsap from 'gsap'
+import Image, { StaticImageData } from 'next/image'
+import React from 'react'
+
+const ProjectCard = ({
+  image,
+  imageHeight,
+  projectTitle,
+  description,
+}: {
+  image: StaticImageData
+  projectTitle: string
+  imageHeight: number
+  description: string
+}) => {
+       const handleMouseOver = (e: React.MouseEvent<HTMLImageElement>) => {
+    gsap.to(e.currentTarget, {
+      scale: 1.1,
+      duration: 1,
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLImageElement>) => {
+    gsap.to(e.currentTarget, {
+      scale: 1,
+      duration: 1,
+      ease: "power2.out",
+    });
+  };
+  return (
+    <div className='flex flex-col gap-[12px] items-start w-full'>
+      <div className='overflow-hidden relative w-full' style={{ height: `${imageHeight}px` }}>
+        <Image
+          src={image}
+          alt=''
+          onMouseLeave={handleMouseLeave}
+                onMouseOver={handleMouseOver}
+          fill
+          className='project-img rounded-[8px] object-cover'
+        />
+      </div>
+      <div className='flex flex-col items-start gap-[4px]'>
+        <p className='text-p24 font-regular'>{projectTitle}</p>
+        <p className='text-p16 font-regular opacity-70'>{description}</p>
+      </div>
+    </div>
+  )
+}
+
+export default ProjectCard
