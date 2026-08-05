@@ -1,12 +1,18 @@
 "use client";
 import Link from 'next/link';
-import React, { useState } from 'react'
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react'
 
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
     const handleModalButton = ()=> {
         setIsModalOpen(!isModalOpen)
     }
+    const pathname = usePathname();
+     useEffect(() => {
+        setIsModalOpen(false);
+    }, [pathname]);
+
   return (
     <nav className='w-full h-full flex items-center justify-between py-3 px-[16px] lg:px-7.25 bg-background'>
         {isModalOpen ?
@@ -43,7 +49,7 @@ const Header = () => {
             <Link href="/work">work</Link>
         </li>
           <li className='hidden lg:block'>
-            <a href="#">about me</a>
+            <Link href="/about">about me</Link>
         </li>
           <li className='hidden lg:block'>
             <a href="#">start a project</a>
