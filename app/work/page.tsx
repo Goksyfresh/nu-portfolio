@@ -1,85 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 import ProjectCard from '../components/projectCard';
-import Launchfolio from "../../public/images/Launchfolioo.png";
-import Kickabout from "../../public/images/kick.png";
-import Oaken from "../../public/images/oaken.png";
-import OwnTheFit from "../../public/images/otf.png";
 import GetInTouch from '../components/getInTouch';
-import screenshot1 from '../../public/images/screenshot1.png'
-import screenshot2 from '../../public/images/screenshot2.png'
-import screenshot3 from '../../public/images/screenshot3.png'
-import screenshot4 from '../../public/images/screenshot4.png'
-type Category = 'frontend' | 'fullstack' | 'animations';
-
-const projects: {
-  image: any;
-  projectTitle: string;
-  description: string;
-  imageHeight: number;
-  category: Category;
-}[] = [
-  {
-    image: Launchfolio,
-    projectTitle: "Launchfolio",
-    description: "A framer template recreate",
-    imageHeight: 520,
-    category: 'frontend',
-  },
-  {
-    image: Kickabout,
-    projectTitle: "Kickabout",
-    description: "A bright startup idea where users can create 5 aside football sessions with flexibility of time, location and skill level and others can join. Users also have the luxury of rating and reviewing each other after a kickabout session.",
-    imageHeight: 520,
-    category: 'fullstack',
-  },
-  {
-    image: Oaken,
-    projectTitle: "Oaken",
-    description: "An ecommerce furniture website designed by a twitter mutual.",
-    imageHeight: 520,
-    category: 'frontend',
-  },
-  {
-    image: OwnTheFit,
-    projectTitle: "OwnTheFit",
-    description: "A social community meets Ecommerce web app for streetwear enthusiasts and designers to connect.",
-    imageHeight: 520,
-    category: 'fullstack',
-  },
-   {
-    projectTitle: "Image Hover Effect",
-    image:screenshot1,
-    description:
-      "Interactive image gallery with smooth hover transitions and scale animations.",
-   imageHeight:520,
-   category:'animations'
-  },
-   {
-    projectTitle: "Image Gallery with Selection",
-    image:screenshot2,
-    description:
-      "Interactive archive gallery allowing image selection with keyboard navigation and animated preview.",
-      imageHeight:520,
-      category:"animations"
-  },
-   {
-    projectTitle: "Hero Section with Text Animation",
-    image:screenshot3,
-    description:
-      "Full-screen hero section featuring character-by-character text animation and scroll-triggered reveals.",
-   imageHeight:520,
-   category:"animations"
-    },
-  {
-    projectTitle: "Progress Indicator Animation",
-    image:screenshot4,
-    description:
-      "Dynamic progress animation with visual feedback and state management.",
-  imageHeight:520,
-  category:"animations"
-    },
-];
+import { projects,  } from '../lib/projects'; 
+// ^ adjust relative path to match your actual folder depth
 
 const filters = ['all', 'frontend', 'fullstack', 'animations'] as const;
 type Filter = typeof filters[number];
@@ -152,15 +76,16 @@ const WorkPage = () => {
       </ul>
 
       <div
-  className={`project-hover-zone flex flex-col lg:grid w-full gap-[24px] ${
-    filteredProjects.length <= 2
-      ? 'grid-cols-2 grid-rows-1'
-      : 'grid-cols-2 grid-rows-2'
-  }`}
->
+        className={`project-hover-zone flex flex-col lg:grid w-full gap-[24px] ${
+          filteredProjects.length <= 2
+            ? 'grid-cols-2 grid-rows-1'
+            : 'grid-cols-2 grid-rows-2'
+        }`}
+      >
         {filteredProjects.map((project) => (
           <ProjectCard
-            key={project.projectTitle}
+            key={project.slug}
+            slug={project.slug}
             image={project.image}
             projectTitle={project.projectTitle}
             description={project.description}

@@ -115,6 +115,7 @@ return () => {
           <div className="griddy w-full flex flex-col lg:grid grid-cols-6 items-start gap-[24px]">
             <div className="w-full lg:col-span-4">
               <ProjectCard
+              slug="launchfolio"
                 image={Launchfolio}
                 projectTitle="Launchfolio"
                 description="A framer template recreate"
@@ -123,6 +124,7 @@ return () => {
             </div>
             <div className="lg:col-span-2">
               <ProjectCard
+              slug="kickabout"
                 image={Kickabout}
                 projectTitle="Kickabout"
                 description="A bright startup idea where users can create 5 aside football sessions with flexibility of time, location and skill level and others can join. Users also have the luxury of rating and reviewing each other after a kickabout session."
@@ -133,6 +135,7 @@ return () => {
           <div className="griddy flex flex-col lg:grid grid-cols-6 items-start gap-[24px]">
             <div className="lg:col-span-3">
               <ProjectCard
+              slug="oaken"
                 image={Oaken}
                 projectTitle="Oaken"
                 description="An ecommerce furniture website designed by a twitter mutual."
@@ -141,6 +144,7 @@ return () => {
             </div>
             <div className="lg:col-span-3">
               <ProjectCard
+              slug="ownthefit"
                 image={OwnTheFit}
                 projectTitle="OwnTheFit"
                 description="A social community meets Ecommerce web app for streetwear enthusiasts and designers to connect."

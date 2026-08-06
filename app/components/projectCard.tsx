@@ -1,13 +1,17 @@
+"use client";
 import gsap from 'gsap'
 import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const ProjectCard = ({
+  slug,
   image,
   imageHeight,
   projectTitle,
   description,
 }: {
+  slug: string
   image: StaticImageData
   projectTitle: string
   imageHeight: number
@@ -22,7 +26,7 @@ const ProjectCard = ({
   };
 
   return (
-    <div className='flex flex-col gap-[12px] items-start w-full'>
+    <Link href={`/projects/${slug}`} className='flex flex-col gap-[12px] items-start w-full'>
       <div
         className='project-img-wrapper overflow-hidden relative w-full'
         style={{ ['--card-height' as string]: `${imageHeight}px` }}
@@ -40,7 +44,7 @@ const ProjectCard = ({
         <p className='text-p24 font-regular'>{projectTitle}</p>
         <p className='text-p16 font-regular opacity-70'>{description}</p>
       </div>
-    </div>
+    </Link>
   )
 }
 
