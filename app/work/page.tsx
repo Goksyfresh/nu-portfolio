@@ -55,7 +55,7 @@ const WorkPage = () => {
       </div>
 
       <h1
-        className='font-bold text-light text-[64px] mt-[30px] lg:text-[255px]'
+        className='font-bold text-light text-[56px] mt-[30px] lg:text-[255px]'
         style={{ letterSpacing: '-0.06em', lineHeight: '0.9em', marginBottom: "-40px" }}
       >
         selected work

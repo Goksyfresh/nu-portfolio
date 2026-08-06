@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GetInTouch from "../components/getInTouch";
 import Image from "next/image";
 import OyeGoat from "../../public/images/oyegoat3.png";
@@ -8,6 +8,22 @@ import Experience from "../components/experience";
 const AboutPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isOverProjects, setIsOverProjects] = useState(false);
+   useEffect(() => {
+      const handleMouseMove = (e: MouseEvent) => {
+        setMousePosition({ x: e.clientX, y: e.clientY })
+      }
+      const handleMouseOver = (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        setIsOverProjects(!!target.closest(".project-hover-zone"));
+      };
+      document.addEventListener('mousemove', handleMouseMove)
+      document.addEventListener('mouseover', handleMouseOver)
+  
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove)
+        document.removeEventListener('mouseover', handleMouseOver)
+      }
+    }, [])
   return (
     <div className="min-h-[100vh] max-w-[100vw] bg-background flex flex-col items-start px-[28px]">
       <div

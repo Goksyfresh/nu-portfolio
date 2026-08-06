@@ -79,5 +79,10 @@ opacity: 1;
     height: 308px !important;
   }
 }
-
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
 

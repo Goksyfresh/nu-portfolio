@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Header from "./Header";
 import Hero from "./Hero";
+import Lenis from "lenis";
 
 
 export default function Home() {
@@ -23,6 +24,18 @@ const [isOverProjects, setIsOverProjects] = useState(false)
       document.removeEventListener('mouseover', handleMouseOver)
     }
   }, [])
+  useEffect(()=>{
+ // Initialize Lenis
+const lenis = new Lenis({
+  autoRaf: true,
+});
+
+// Listen for the scroll event and log the event data
+lenis.on('scroll', (e) => {
+  console.log(e);
+});
+  },[])
+ 
   return (
     <div className="w-full relative">
        <div
