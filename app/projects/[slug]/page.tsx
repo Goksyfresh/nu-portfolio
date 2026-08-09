@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { projects, getProjectBySlug } from '../../lib/projects';
 import ProjectGallery from '@/app/components/projectGallery';
 import ProjectCard from '@/app/components/projectCard';
+import ProjectCursorTracker from '@/app/components/ProjectTouch';
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -27,13 +28,20 @@ const ProjectDetailsPage = async ({
 
   return (
     <div className='min-h-[100vh] max-w-[100vw] bg-background text-light px-[16px] lg:px-[28px] pt-[76px] lg:pt-[144px] pb-[80px] flex flex-col items-start gap-[76px]'>
+      <ProjectCursorTracker/>
       <div className='w-full flex flex-col items-center gap-[56px] lg:gap-[96px]'>
- <h1
+        <div className='flex flex-col items-center w-full'>
+<h1
         className='font-bold text-[48px] lg:text-heading2'
         style={{ letterSpacing: '-0.06em', lineHeight: '0.9em' }}
       >
         {project!.projectTitle}
       </h1>
+      <p className='font-medium text-light text-p20'><a className='font-medium text-light text-p20 underline' href={project!.link} target='_blank' rel='noopener noreferrer'>
+        {project!.link}
+      </a></p>
+        </div>
+ 
          <Image
           src={project!.image}
           alt={project!.projectTitle}

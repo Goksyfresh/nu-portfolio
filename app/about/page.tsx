@@ -1,29 +1,85 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import GetInTouch from "../components/getInTouch";
 import Image from "next/image";
 import OyeGoat from "../../public/images/oyegoat3.png";
 import Experience from "../components/experience";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger, SplitText } from "gsap/all";
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const AboutPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isOverProjects, setIsOverProjects] = useState(false);
-   useEffect(() => {
-      const handleMouseMove = (e: MouseEvent) => {
-        setMousePosition({ x: e.clientX, y: e.clientY })
+  const aboutTextContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      setIsOverProjects(!!target.closest(".project-hover-zone"));
+    };
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseover', handleMouseOver)
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseover', handleMouseOver)
+    }
+  }, [])
+
+  useGSAP(() => {
+    const paragraphs = aboutTextContainerRef.current?.querySelectorAll("p");
+    if (!paragraphs || paragraphs.length === 0) return;
+
+    const splits = Array.from(paragraphs).map((p) =>
+      SplitText.create(p, { type: "words" })
+    );
+    const words = splits.flatMap((split) => split.words);
+
+    gsap.set(words, { opacity: 0.4 });
+
+    const mm = gsap.matchMedia();
+    mm.add(
+      {
+        isMobile: "(max-width: 1023px)",
+        isDesktop: "(min-width: 1024px)",
+      },
+      (context) => {
+        const { isMobile } = context.conditions as { isMobile: boolean };
+
+        const trigger = ScrollTrigger.create({
+          trigger: aboutTextContainerRef.current,
+          start: isMobile ? "top 90%" : "top 70%",
+          end: isMobile ? "bottom 70%" : "bottom 60%",
+          scrub: 0.5,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const activeIndex = progress * words.length;
+
+            words.forEach((word, i) => {
+              gsap.to(word, {
+                opacity: i < activeIndex ? 1 : 0.4,
+              });
+            });
+          },
+        });
+
+        return () => {
+          trigger.kill();
+        };
       }
-      const handleMouseOver = (e: MouseEvent) => {
-        const target = e.target as HTMLElement;
-        setIsOverProjects(!!target.closest(".project-hover-zone"));
-      };
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseover', handleMouseOver)
-  
-      return () => {
-        document.removeEventListener('mousemove', handleMouseMove)
-        document.removeEventListener('mouseover', handleMouseOver)
-      }
-    }, [])
+    );
+
+    return () => {
+      mm.revert();
+      splits.forEach((split) => split.revert());
+    };
+  }, []);
+
   return (
     <div className="min-h-[100vh] max-w-[100vw] bg-background flex flex-col items-start px-[28px]">
       <div
@@ -54,21 +110,24 @@ const AboutPage = () => {
           about me
         </h1>
         <div className="flex lg:flex-row flex-col-reverse  w-full justify-between gap-[24px] items-start">
-          <div className="flex flex-col flex-1 items-start gap-[24px] lg:gap-[32px]">
-            <p className="font-regular text-p20 lg:text-p32 opacity-60">
+          <div
+            ref={aboutTextContainerRef}
+            className="flex flex-col flex-1 items-start gap-[24px] lg:gap-[32px]"
+          >
+            <p className="font-regular text-p20 lg:text-p32">
              I’m a frontend developer with a strong software engineering foundation
         and a deep appreciation for how things feel as much as how they work.
             </p>
-            <p className="font-regular text-p20 lg:text-p32 opacity-60">
+            <p className="font-regular text-p20 lg:text-p32">
               I have been developing websites, apps professionally for two
               years.
             </p>
-            <p className="font-regular text-p20 lg:text-p32 opacity-60">
+            <p className="font-regular text-p20 lg:text-p32">
               When I'm not behind a computer screen, I'm usually playing video games or playing football.
             </p>
-            <button className="py-[12px] px-[24px] flex items-center justify-center gap-[10px] rounded-[4px] bg-light text-p16 font-medium text-dark-90">
+            <a href="/opajobi_resume.pdf" className="py-[12px] px-[24px] flex items-center justify-center gap-[10px] rounded-[4px] bg-light text-p16 font-medium text-dark-90">
               download resume
-            </button>
+            </a>
           </div>
           <div className="flex-1">
             <Image

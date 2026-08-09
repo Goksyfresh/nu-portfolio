@@ -15,15 +15,15 @@ const Footer = () => {
 <div className='flex items-center gap-[76px]'>
     <ul className='flex flex-col gap-[10px] font-medium text-p20'>
         <p className='font-regular text-p16'>pages</p>
-        <li>home</li>
+        <Link href="/">home</Link>
         <Link href='/work'>about</Link>
-        <li>work</li>
+        <Link href='/work'>work</Link>
     </ul>
     <ul className='flex flex-col gap-[10px] font-medium text-p20'>
         <p className='font-regular text-p16'>socials</p>
-        <li>instagram</li>
-        <li>X(twitter)</li>
-        <li>linkedin</li>
+        <li><a href="https://instagram.com/oyegoke_xx" target="_blank" rel="noopener noreferrer">instagram</a></li>
+        <li><a href="https://twitter.com/oyegoke19" target="_blank" rel="noopener noreferrer">X (twitter)</a></li>
+        <li><a href="https://linkedin.com/opajobioyegoke" target="_blank" rel="noopener noreferrer">linkedin</a></li>
     </ul>
 </div>
       </div>

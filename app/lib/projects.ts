@@ -49,6 +49,7 @@ export type Project = {
   images:GalleryImage[];
   projectTitle: string;
   description: string;
+  link:string;
   imageHeight: number;
   category: Category;
   projectType:string;
@@ -63,9 +64,10 @@ export const projects: Project[] = [
     image: Launchfolio,
     images:[{src:Launchfolio},{src:Launchfolio2},{src:Launchfolio3},{src:Launchfolio4},{src:Launchfolio5},{src:Launchfolio6}],
     projectTitle: "Launchfolio",
-    description: "A framer template recreate",
+    description: "A pixel-accurate rebuild of a Framer template, translated into a fully responsive Next.js site — built to test how closely custom code could match a no-code design system in both fidelity and performance.",
     imageHeight: 520,
     category: 'frontend',
+    link:'https://launchfolio.vercel.app',
     projectType:"Landing page",
     year:"2026",
     role:"frontend dev",
@@ -78,6 +80,7 @@ export const projects: Project[] = [
     images:[
         { src:KA1, type:'mobile'},{src:KA2, type:'mobile'},{src:KA3, type:'mobile'},{src:KA4, type:'mobile'},{src:KA5, type:'mobile'},{src:KA6, type:'mobile'},{src:KA7, type:'mobile'},{src:KA8, type:'mobile'}],
     projectTitle: "Kickabout",
+    link:"https://kickabout.vercel.app",
     description: "A bright startup idea where users can create 5 aside football sessions with flexibility of time, location and skill level and others can join. Users also have the luxury of rating and reviewing each other after a kickabout session.",
     imageHeight: 520,
     category: 'fullstack',
@@ -91,7 +94,8 @@ export const projects: Project[] = [
     image: Oaken,
     images:[{src:Oaken1},{src:Oaken2},{src:Oaken3},{src:Oaken4},{src:Oaken5},{src:Oaken6},{src:Oaken7}],
     projectTitle: "Oaken",
-    description: "An ecommerce furniture website designed by a twitter mutual.",
+    link:"https://oaken.vercel.app",
+    description: "A furniture ecommerce site built from a designer-provided concept, with an editorial product presentation and a streamlined checkout experience.",
     imageHeight: 520,
     category: 'frontend',
     projectType:"Ecommerce",
@@ -104,6 +108,7 @@ export const projects: Project[] = [
     image: OwnTheFit,
     images:[{src:OTF1,type:'mobile'},{src:OTF2,type:'mobile'},{src:OTF3,type:'mobile'},{src:OTF4,type:'mobile'},{src:OTF5,type:'mobile'},{src:OTF6,type:'mobile'},{src:OTF7,type:'mobile'},{src:OTF8,type:'mobile'},{src:OTF9,type:'mobile'},{src:OTF10,type:'mobile'}],
     projectTitle: "OwnTheFit",
+    link:"https://own-the-fit.vercel.app",
     description: "A social community meets Ecommerce web app for streetwear enthusiasts and designers to connect.",
     imageHeight: 520,
     category: 'fullstack',
@@ -115,10 +120,11 @@ export const projects: Project[] = [
   {
     slug: 'image-hover-effect',
     image: screenshot1,
-    images:[{src:screenshot1},{src:screenshot1},{src:screenshot1},{src:screenshot1},{src:screenshot1},{src:screenshot1},{src:screenshot1},{src:screenshot1}],
+    images:[{src:screenshot1}],
     projectTitle: "Image Hover Effect",
     description: "Interactive image gallery with smooth hover transitions and scale animations.",
     imageHeight: 520,
+    link:'https://animations-opajobi.vercel.app/animations/image-hover',
     category: 'animations',
     projectType:"Hover animation",
     year:"2025",
@@ -128,10 +134,11 @@ export const projects: Project[] = [
   {
     slug: 'image-gallery-selection',
     image: screenshot2,
-    images:[{src:screenshot2},{src:screenshot2},{src:screenshot2}],
+    images:[{src:screenshot2}],
     projectTitle: "Image Gallery with Selection",
     description: "Interactive archive gallery allowing image selection with keyboard navigation and animated preview.",
     imageHeight: 520,
+        link:'https://animations-opajobi.vercel.app/animations/image-select',
     category: 'animations',
     projectType:"Interactive animation",
     year:"2025",
@@ -141,10 +148,11 @@ export const projects: Project[] = [
   {
     slug: 'hero-text-animation',
     image: screenshot3,
-    images:[{src:screenshot3},{src:screenshot3},{src:screenshot3}],
+    images:[{src:screenshot3}],
     projectTitle: "Hero Section with Text Animation",
     description: "Full-screen hero section featuring character-by-character text animation and scroll-triggered reveals.",
     imageHeight: 520,
+       link:'https://animations-opajobi.vercel.app/animations/hero-section',
     category: 'animations',
     projectType:"Text animation",
     year:"2025",
@@ -154,10 +162,11 @@ export const projects: Project[] = [
   {
     slug: 'progress-indicator-animation',
     image: screenshot4,
-    images:[{src:screenshot4},{src:screenshot4},{src:screenshot4},{src:screenshot4},{src:screenshot4},{src:screenshot4},{src:screenshot4},{src:screenshot4}],
+    images:[{src:screenshot4}],
     projectTitle: "Progress Indicator Animation",
     description: "Dynamic progress animation with visual feedback and state management.",
     imageHeight: 520,
+    link:'https://animations-opajobi.vercel.app/animations/progress-animation',
     category: 'animations',
     projectType:"Landing page",
     year:"2025",

@@ -33,12 +33,12 @@ const Header = () => {
             <Link href="/about">about me</Link>
         </li>
           <li>
-            <Link href="/contact">start a project</Link>
+            <Link href="/#contact">start a project</Link>
         </li>
                 </ul>
-                 <button className="py-[12px] px-[24px] flex items-center justify-center gap-[10px] rounded-[4px] bg-light text-p16 font-medium text-dark-90">
+                 <a href='/opajobi_resume.pdf' className="py-[12px] px-[24px] flex items-center justify-center gap-[10px] rounded-[4px] bg-light text-p16 font-medium text-dark-90">
                 download resume
-            </button>
+            </a>
             </div>
         </div> :
             <ul className='nav-list flex w-full items-center justify-between text-p20 font-medium text-light'>
@@ -52,7 +52,7 @@ const Header = () => {
             <Link href="/about">about me</Link>
         </li>
           <li className='hidden lg:block'>
-            <a href="#">start a project</a>
+            <a href="/#contact">start a project</a>
         </li>
         <li className='lg:hidden'>
             <div onClick={handleModalButton} className='flex flex-col items- justify-center gap-[10px] w-[44px] h-[44px]'>

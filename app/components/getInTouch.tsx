@@ -21,11 +21,11 @@ const GetInTouch = () => {
   },[imageIndex])
   const currentImage = data[imageIndex].image
   return (
-     <div className="lg:py-[280px] lg:px-[28px] flex lg:flex-row flex-col items-start lg:items-center justify-center w-full gap-[32px] lg:gap-[72px]">
-<p className="font-bold text-[48px] lg:text-heading4 lowercase" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>Get in</p>
+     <a id='contact' href="mailto:opajobioyegokeoyebola@gmail.com" className="group lg:py-[280px] lg:px-[28px] flex lg:flex-row flex-col items-start lg:items-center justify-center w-full gap-[32px] lg:gap-[72px]">
+<p className="font-bold text-[48px] lg:text-heading4 lowercase transition-opacity duration-300 group-hover:opacity-60" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>Get in</p>
 <Image src={currentImage} alt="" className="lg:w-[302px] rounded-[8px] w-full h-[230px] object-cover"/>
-<p className="font-bold hidden lg:block text-heading4" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>touch</p>
-      </div>
+<p className="font-bold hidden lg:block text-heading4 transition-opacity duration-300 group-hover:opacity-60" style={{letterSpacing:"-0.06em", lineHeight:"0.9"}}>touch</p>
+      </a>
   )
 }
 

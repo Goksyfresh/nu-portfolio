@@ -18,13 +18,17 @@ const Hero = () => {
   const projectSectionRef = useRef<HTMLDivElement>(null);
   const heroAboutRef = useRef<HTMLDivElement>(null);
   const aboutContainerRef = useRef<HTMLDivElement>(null);
- 
+ const heroCopyRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     const split = SplitText.create(heroAboutRef.current, {
       type: "words",
     });
-
+    const heading = heroCopyRef.current?.querySelector("h1");
+    const paragraph = heroCopyRef.current?.querySelector("p");
+    if(!heading || !paragraph) return;
+    gsap.fromTo(heading, { opacity: 0, yPercent: 100 }, { opacity: 1, yPercent: 0, duration: 1, ease:"power2.inOut" });
+    gsap.fromTo(paragraph, { opacity: 0, yPercent: 100 }, { opacity: 1, yPercent: 0, delay:0.7, duration: 1, ease:"power2.inOut" });
     const projects =
       projectSectionRef.current?.querySelectorAll(".griddy div img");
     if (!projects) return;
@@ -86,7 +90,7 @@ return () => {
   return (
     <div className="w-full flex flex-col items-center gap-[96px] lg:px-[28px] px-[16px] pb-[48px] lg:pb-[80px]">
       <div className=" w-full flex flex-col items-center gap-[48px] lg:gap-[80px]">
-        <div className="flex flex-col items-start lg:items-end gap-[18px] lg:gap-[32px] pt-[96px] lg:pt-[64px]">
+        <div ref={heroCopyRef} className="flex flex-col items-start lg:items-end gap-[18px] lg:gap-[32px] pt-[96px] lg:pt-[64px]">
           <h1
             className="hidden lg:block font-bold text-heading"
             style={{ letterSpacing: "-0.07em", lineHeight: "0.9em" }}
@@ -118,7 +122,7 @@ return () => {
               slug="launchfolio"
                 image={Launchfolio}
                 projectTitle="Launchfolio"
-                description="A framer template recreate"
+                description="A pixel-accurate rebuild of a Framer template, translated into a fully responsive Next.js site — built to test how closely custom code could match a no-code design system in both fidelity and performance."
                 imageHeight={596}
               />
             </div>
@@ -138,7 +142,7 @@ return () => {
               slug="oaken"
                 image={Oaken}
                 projectTitle="Oaken"
-                description="An ecommerce furniture website designed by a twitter mutual."
+                description="A furniture ecommerce site built from a designer-provided concept, with an editorial product presentation and a streamlined checkout experience."
                 imageHeight={406}
               />
             </div>
@@ -162,10 +166,7 @@ return () => {
           ref={heroAboutRef}
           className="font-medium text-p24 lg:text-heading3 text-light"
           style={{ lineHeight: "1.1em", letterSpacing: "-0.05em" }}
-        >
-          i'm Opajobi Oyegoke, a frontend developer based in Lagos, Nigeria. I
-          work with small business owners and startup founders who want a brand
-          identity that positions them as the premium choice in their market.
+        >i'm Opajobi Oyegoke, a frontend developer based in Lagos, Nigeria. I build interfaces for small businesses and startups that don't just look premium — optimized load times, smooth interactions, and clean code underneath, so the experience holds up as well as it looks
         </p>
         <div className="lg:grid w-full flex flex-col grid-cols-3 lg:h-[384px] gap-[32px] lg:gap-x-[40px] lg:gap-y-[24px]">
           <Image
@@ -176,19 +177,16 @@ return () => {
           <div className=" flex flex-col items-start gap-[10px] lg:gap-[36px]">
             <p className="opacity-70 font-regular text-p16" style={{letterSpacing:"-0.02em", lineHeight:'1.2em'}}>why work with me</p>
             <p className="font-medium text-[16px] lg:text-p24" style={{lineHeight:'1.2em', letterSpacing:'-0.02em'}}>
-              I believe the best brands come from true collaboration. When we
-              work together, you're not just getting a designer, you're getting
-              a strategic partner who takes time to understand your business,
-              your customers, and your goals.
+             I believe the best products come from true collaboration. When we work together, you're not just getting code, you're getting a partner who takes time to understand your business, your users, and your goals — and builds accordingly.
             </p>
-            <button className="hidden lg:block py-[12px] px-[24px] flex items-center justify-center gap-[10px] rounded-[4px] bg-light text-p16 font-medium text-dark-90">
+            <a href="/opajobi_resume.pdf" className="hidden lg:block py-[12px] px-[24px] flex items-center justify-center gap-[10px] rounded-[4px] bg-light text-p16 font-medium text-dark-90">
                 download resume
-            </button>
+            </a>
           </div>
           <div className=" flex flex-col items-start gap-[10px] lg:gap-[36px]">
             <p className="opacity-70 font-regular text-p16"  style={{letterSpacing:"-0.02em", lineHeight:'1.2em'}}>when i'm not developing</p>
             <p className="font-medium text-[16px] lg:text-p24" style={{lineHeight:'1.2em', letterSpacing:'-0.02em'}}>
-             You'll find me exploring Portland's coffee scene, hiking around Mt. Hood, or shooting film photography. I'm always looking for inspiration in unexpected places, whether that's vintage typography at a flea market or color combinations in nature.
+             You'll find me exploring new music, playing video games, or playing football. I get a lot of my ideas from just using stuff — a transition on an app I open every day, a layout on a site I stumbled onto, a small interaction that makes something feel better than it needs to.
             </p>
           </div>
         </div>
