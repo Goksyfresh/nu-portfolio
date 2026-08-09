@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import { ViewTransitions } from "next-view-transitions";
+import AppShell from "./appShell";
 
 
 
@@ -17,14 +19,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
+    <ViewTransitions>
+   <html
       lang="en"
     >
       <body className="relative">
+      <AppShell>
          <Header/>
          {children}
          <Footer/>
+         </AppShell>
       </body>
     </html>
+    </ViewTransitions>
+ 
   );
 }

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import {Link} from 'next-view-transitions'
 import React from 'react'
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
     <ul className='flex flex-col gap-[10px] font-medium text-p20'>
         <p className='font-regular text-p16'>pages</p>
         <Link href="/">home</Link>
-        <Link href='/work'>about</Link>
+        <Link href='/about'>about</Link>
         <Link href='/work'>work</Link>
     </ul>
     <ul className='flex flex-col gap-[10px] font-medium text-p20'>

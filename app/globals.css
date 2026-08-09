@@ -88,4 +88,45 @@ body::-webkit-scrollbar {
 html{
   scroll-behavior: smooth;
 }
+/* globals.css (or wherever your global styles live) */
 
+/* Disable the default crossfade so our custom animation is the only thing playing */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Old page: slides up and out */
+::view-transition-old(root) {
+  animation: slide-out-up 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  z-index: 1;
+}
+
+/* New page: slides up and in, starting from below the viewport */
+::view-transition-new(root) {
+  animation: slide-in-up 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  z-index: 2;
+}
+
+@keyframes slide-out-up {
+  from {
+
+    opacity: 1;
+  }
+  to {
+    
+    opacity: 0;
+    duration: 0.5s;
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+    duration: 1s;
+  }
+}
