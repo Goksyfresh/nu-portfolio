@@ -13,6 +13,14 @@ const Preloader = ({ onComplete }: { onComplete?: () => void }) => {
   const [imageIndex, setImageIndex] = useState(0);
   const [percent, setPercent] = useState(0);
   const [isDone, setIsDone] = useState(false);
+  const [shouldRender, setShouldRender] = useState(true);
+
+  // Fully unmount after the fade-out transition finishes
+  useEffect(() => {
+    if (!isDone) return;
+    const timeout = setTimeout(() => setShouldRender(false), 700);
+    return () => clearTimeout(timeout);
+  }, [isDone]);
 
   // Cycle through the images while loading
   useEffect(() => {
@@ -53,13 +61,15 @@ const Preloader = ({ onComplete }: { onComplete?: () => void }) => {
     };
   }, [isDone]);
 
+  if (!shouldRender) return null;
+
   return (
     <div
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center gap-[24px] bg-background transition-opacity duration-700 ${
         isDone ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <div className="relative w-[200px] h-[200px] lg:w-[280px] lg:h-[280px] rounded-[8px] overflow-hidden">
+      <div className="relative w-[220px] h-[280px] lg:w-[302px] lg:h-[386px] rounded-[8px] overflow-hidden">
         <Image
           src={images[imageIndex]}
           alt=""
