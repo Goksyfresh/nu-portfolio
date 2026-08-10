@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Funnel_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import { ViewTransitions } from "next-view-transitions";
 import AppShell from "./appShell";
 
-
+const funnelSans = Funnel_Sans({
+  subsets: ["latin"],
+  variable: "--font-funnel",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Opajobi dev",
@@ -20,18 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-   <html
-      lang="en"
-    >
-      <body className="relative">
-      <AppShell>
-         <Header/>
-         {children}
-         <Footer/>
-         </AppShell>
-      </body>
-    </html>
+      <html
+        lang="en"
+        className={`${funnelSans.variable}`}
+      >
+        <body className="relative">
+          <AppShell>
+            <Header />
+            {children}
+            <Footer />
+          </AppShell>
+        </body>
+      </html>
     </ViewTransitions>
- 
   );
 }

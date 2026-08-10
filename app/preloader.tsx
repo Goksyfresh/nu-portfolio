@@ -6,7 +6,7 @@ import OyeImage2 from "../public/images/Oye.jpg";
 import OyeImage3 from "../public/images/oyegoat2.png";
 
 const images = [OyeImage, OyeImage2, OyeImage3];
-const LOAD_DURATION = 2200; // ms — total time the preloader stays up
+const LOAD_DURATION = 1200; // ms — total time the preloader stays up
 const IMAGE_CYCLE_INTERVAL = 400; // ms — how fast the image swaps
 
 const Preloader = ({ onComplete }: { onComplete?: () => void }) => {

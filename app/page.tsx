@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Header from "./Header";
-import Hero from "./Hero";
+import dynamic from "next/dynamic";
 import Lenis from "lenis";
 
+const Hero = dynamic(() => import("./Hero"), { ssr: false });
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({x:0, y:0})

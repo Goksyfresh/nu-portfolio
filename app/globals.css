@@ -11,22 +11,6 @@
   --dark-90:#1F1F1FE6;
 }
 
-@font-face {
-  font-family: funnelBold;
-  src: url("../public/fonts/FunnelSans-Bold.ttf");
-}
-@font-face {
-  font-family: funnelMedium;
-  src: url("../public/fonts/FunnelSans-Medium.ttf");
-}
-@font-face {
-  font-family: funnelRegular;
-  src: url("../public/fonts/FunnelSans-Regular.ttf");
-}
-@font-face {
-  font-family: funnelSemiBold;
-  src: url("../public/fonts/FunnelSans-SemiBold.ttf");
-}
 
 @theme inline{
   --text-heading2: 120px;
@@ -50,16 +34,13 @@
   --color-light-20: var(--light-20);
 
   --color-white: var(--white);
-   --font-bold: funnelBold, sans-serif;
-  --font-semibold: funnelSemiBold, sans-serif;
-  --font-medium: funnelMedium, sans-serif;
-  --font-regular: funnelRegular, sans-serif;
+   --font-sans: var(--font-funnel), sans-serif;
 }
 
 body {
  background: var(--color-background);
   color: var(--color-light);
-  font-family: var(--font-regular);
+  font-family: var(--font-sans);
 }
 .nav-list li {
   transition: opacity 0.2s ease;

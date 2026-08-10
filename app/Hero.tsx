@@ -170,7 +170,7 @@ return () => {
         </p>
         <div className="lg:grid w-full flex flex-col grid-cols-3 lg:h-[384px] gap-[32px] lg:gap-x-[40px] lg:gap-y-[24px]">
           <Image
-            className="lg:h-full h-[360px] rounded-[8px] lg:rounded-[6px] col-span-1 object-cover"
+            className="lg:h- w-full h-[360px] rounded-[8px] lg:rounded-[6px] col-span-1 object-cover"
             src={OyeImage}
             alt=""
           />
