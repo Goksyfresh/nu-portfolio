@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Lenis from "lenis";
 
-const Hero = dynamic(() => import("./Hero"), { ssr: false });
+const Hero = dynamic(() => import("./Hero"));
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({x:0, y:0})
